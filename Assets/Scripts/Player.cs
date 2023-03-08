@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,19 @@ public class Player : MonoBehaviour
 {
     [SerializeField] public float runSpeed = 3f;
     [SerializeField] public float jumpSpeed = 1f;
-
+    [SerializeField] Transform groundCheck;
 
     Rigidbody2D _myRigidbody;
+    public CapsuleCollider2D _myCapCollider;
 
+    public bool _isflying;
+    public bool _canJump;
+    [SerializeField]
+    public bool _isGround;
 
+    public float _manaMax = 100;
+    public float _manaAmount = 100;
+    public float _manaRegen = 1f;
 
 
     public int _obpoint = 0;
@@ -18,11 +27,22 @@ public class Player : MonoBehaviour
     void Start()
     {
         _myRigidbody = GetComponent<Rigidbody2D>();
+        _myCapCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            Debug.DrawLine(transform.position, groundCheck.position, Color.red);
+            _isGround = true;
+        }
+        else
+        {
+            Debug.DrawLine(transform.position, groundCheck.position, Color.blue);
+            _isGround = false;
+        }
         _running();
         _flying();
 
@@ -47,15 +67,89 @@ public class Player : MonoBehaviour
 
         else
         {
-            _myRigidbody.velocity = new Vector2(_myRigidbody.velocity.x, _myRigidbody.velocity.y);
+            if(_isGround)
+            _myRigidbody.velocity = new Vector2(0, _myRigidbody.velocity.y);
+            else
+                _myRigidbody.velocity = new Vector2(_myRigidbody.velocity.x, _myRigidbody.velocity.y);
         }
     }
 
     void _flying()
     {
-        if (Input.GetKey(KeyCode.Space))
+       
+
+        if (_isGround)
         {
-            _myRigidbody.velocity = new Vector2(_myRigidbody.velocity.x, jumpSpeed);
+            _manaSysP();
+            if (Input.GetKeyDown(KeyCode.Space) && _canJump == true)
+            {
+                _myRigidbody.velocity = new Vector2(_myRigidbody.velocity.x, jumpSpeed);
+                _canJump = false;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                _canJump = true;
+            }
+            //_canJump = true;
+            _isflying = false;
+        }
+        else
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                _canJump = true;
+            }
+
+            if (Input.GetKey(KeyCode.Space) && _canJump == true)
+            {
+                _flying2();
+            }
+            else
+            {
+                _manaSysP();
+            }
+            _isflying = true;
+            return;
+        }
+
+    }
+
+    void _flying2()
+    {
+        if (_isflying == true)
+        {
+            if (_manaAmount > 5)
+            {
+                _myRigidbody.velocity = new Vector2(_myRigidbody.velocity.x, 0.5f * jumpSpeed);
+                _manaSys();
+            }
+        }
+    }
+
+    void _manaSys()
+    {
+        if (_manaAmount >= 1)
+        {
+            _manaAmount -= _manaRegen * 50 * Time.deltaTime;
+            _manaMax = Convert.ToInt32(_manaAmount);
+        }
+        else
+        {
+            _manaAmount = 0;
+        }
+    }
+
+    void _manaSysP()
+    {
+        if (_manaAmount <= 100)
+        {
+            _manaAmount += _manaRegen * 30 * Time.deltaTime;
+            _manaMax = Convert.ToInt32(_manaAmount);
+        }
+        else
+        {
+            _manaAmount = 100;
         }
     }
 
