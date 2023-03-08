@@ -70,4 +70,11 @@ public class Player : MonoBehaviour
             Invoke("ResetScene", 1);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Trap")
+        {
+            Invoke("ResetScene", 1);
+        }
+    }
 }
