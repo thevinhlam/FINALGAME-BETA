@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1012257570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1012257571}
+  m_Layer: 0
+  m_Name: ground check
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1012257571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012257570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.165, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7088003083809983387}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210876621284531376
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,9 +45,9 @@ GameObject:
   - component: {fileID: 789939974260103790}
   - component: {fileID: 4895013240665593839}
   - component: {fileID: 8624820815105638258}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 01Knight_1
-  m_TagString: Ground
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +63,8 @@ Transform:
   m_LocalPosition: {x: 2.9, y: 17.08, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1012257571}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,6 +189,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9562ecd166933be4eb42e3eacb8532f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 3
-  jumpSpeed: 1
+  runSpeed: 4
+  jumpSpeed: 6
+  groundCheck: {fileID: 1012257571}
+  _myCapCollider: {fileID: 789939974260103790}
+  _isflying: 0
+  _canJump: 0
+  _isGround: 0
+  _manaMax: 100
+  _manaAmount: 100
+  _manaRegen: 1
   _obpoint: 0
