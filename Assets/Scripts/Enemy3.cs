@@ -84,7 +84,7 @@ public class Enemy3 : MonoBehaviour
     {
         bool val = false;
         
-        RaycastHit2D hit = Physics2D.Linecast(transform.position,castPoint.position,1 <<LayerMask.NameToLayer("Ground"));
+        RaycastHit2D hit = Physics2D.Linecast(transform.position,castPoint.position,1 <<LayerMask.NameToLayer("Action"));
         if(hit.collider != null)
         {
             if (hit.collider.gameObject.CompareTag("Player"))

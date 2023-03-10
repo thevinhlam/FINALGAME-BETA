@@ -5105,7 +5105,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Alkhemikal SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -5163,12 +5164,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.088
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 5
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.5149648
+    - _ScaleRatioC: 0.4726891
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 1
@@ -5181,10 +5182,10 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 1024
     - _TextureWidth: 1024
-    - _UnderlayDilate: 0.37
-    - _UnderlayOffsetX: -0.05
-    - _UnderlayOffsetY: -0.05
-    - _UnderlaySoftness: 1
+    - _UnderlayDilate: 0.16
+    - _UnderlayOffsetX: -1
+    - _UnderlayOffsetY: 0.29
+    - _UnderlaySoftness: 0.387
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 0.75
