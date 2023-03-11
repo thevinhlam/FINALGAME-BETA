@@ -11,8 +11,7 @@ public class Enemy3 : MonoBehaviour
     Animator animator;
     [SerializeField]
     float speed = 4f;
-    [SerializeField]
-    float agroRange = 5f;
+    
     [SerializeField]
     Transform castPoint;
 
