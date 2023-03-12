@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] public float runSpeed = 3f;
     [SerializeField] public float jumpSpeed = 1f;
     [SerializeField] Transform groundCheck;
+    [SerializeField] Transform wallCheck;
+
 
     Rigidbody2D _myRigidbody;
     public CapsuleCollider2D _myCapCollider;
@@ -33,19 +35,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
-        {
-            Debug.DrawLine(transform.position, groundCheck.position, Color.red);
-            _isGround = true;
-        }
-        else
-        {
-            Debug.DrawLine(transform.position, groundCheck.position, Color.blue);
-            _isGround = false;
-        }
+        _wallCheck();
+        _groundCheck();
         _running();
         _flying();
-
+        _FlipSprite();
     }
 
     void _running()
@@ -150,6 +144,44 @@ public class Player : MonoBehaviour
         else
         {
             _manaAmount = 100;
+        }
+    }
+
+    void _groundCheck()
+    {
+        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            Debug.DrawLine(transform.position, groundCheck.position, Color.red);
+            _isGround = true;
+        }
+        else
+        {
+            Debug.DrawLine(transform.position, groundCheck.position, Color.blue);
+            _isGround = false;
+        }
+    }
+
+    void _wallCheck()
+    {
+        if (Physics2D.Linecast(transform.position, wallCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            Debug.DrawLine(transform.position, wallCheck.position, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(transform.position, wallCheck.position, Color.blue);
+        }
+
+    }
+
+
+    void _FlipSprite()
+    {
+        bool playerHasHorizontalSpeed = Mathf.Abs(_myRigidbody.velocity.x) > Mathf.Epsilon;
+
+        if (playerHasHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(_myRigidbody.velocity.x)*Math.Abs(_myRigidbody.transform.localScale.x), _myRigidbody.transform.localScale.y);
         }
     }
 
