@@ -66,8 +66,8 @@ public class Player : MonoBehaviour
 
         else
         {
-            if(_isGround)
-            _myRigidbody.velocity = new Vector2(0, _myRigidbody.velocity.y);
+            if (_isGround)
+                _myRigidbody.velocity = new Vector2(0, _myRigidbody.velocity.y);
             else
                 _myRigidbody.velocity = new Vector2(_myRigidbody.velocity.x, _myRigidbody.velocity.y);
         }
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
 
     void _flying()
     {
-       
+
 
         if (_isGround)
         {
@@ -104,6 +104,10 @@ public class Player : MonoBehaviour
             {
                 _flying2();
             }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _manaAmount = _manaAmount - 5;
+            }
             else
             {
                 _manaSysP();
@@ -130,7 +134,7 @@ public class Player : MonoBehaviour
     {
         if (_manaAmount >= 5)
         {
-            _manaAmount -= _manaRegen * 50 * Time.deltaTime;
+            _manaAmount -= _manaRegen * 60 * Time.deltaTime;
             _manaMax = Convert.ToInt32(_manaAmount);
         }
         else
@@ -143,7 +147,7 @@ public class Player : MonoBehaviour
     {
         if (_manaAmount <= 100)
         {
-            _manaAmount += _manaRegen * 30 * Time.deltaTime;
+            _manaAmount += _manaRegen * 20 * Time.deltaTime;
             _manaMax = Convert.ToInt32(_manaAmount);
         }
         else
@@ -186,7 +190,7 @@ public class Player : MonoBehaviour
 
         if (playerHasHorizontalSpeed)
         {
-            transform.localScale = new Vector2(Mathf.Sign(_myRigidbody.velocity.x)*Math.Abs(_myRigidbody.transform.localScale.x), _myRigidbody.transform.localScale.y);
+            transform.localScale = new Vector2(Mathf.Sign(_myRigidbody.velocity.x) * Math.Abs(_myRigidbody.transform.localScale.x), _myRigidbody.transform.localScale.y);
         }
     }
 
@@ -208,7 +212,7 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy" || collision.tag == "Trap")
+        if (collision.tag == "Enemy" || collision.tag == "Trap")
         {
             Invoke("ResetScene", 1);
         }
