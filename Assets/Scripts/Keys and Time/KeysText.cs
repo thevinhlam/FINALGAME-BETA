@@ -13,23 +13,23 @@ public class KeysText : MonoBehaviour
     
     public TextMeshProUGUI _numKeys;
 
-    public Keys _getKey;
+    //public Keys _getKey;
     public int _Keyplus = 0;
     private void Start()
     {
         _numKeys.text = "0/" + _totalKeys;
     }
-    public void _AddPoint(int point)
-    {
-        if (point < _totalKeys)
-        {
-            _numKeys.text = "" + point + "/" +_totalKeys;
-        }
-        else
-        {
-            _numKeys.text = _totalKeys + "/" + _totalKeys;
-        }
-    }
+    //public void _AddPoint(int point)
+    //{
+    //    if (point < _totalKeys)
+    //    {
+    //        _numKeys.text = "" + point + "/" +_totalKeys;
+    //    }
+    //    else
+    //    {
+    //        _numKeys.text = _totalKeys + "/" + _totalKeys;
+    //    }
+    //}
 
     public void _GetKeynum()
     {

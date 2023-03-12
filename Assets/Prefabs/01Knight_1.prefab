@@ -200,9 +200,11 @@ MonoBehaviour:
   _isflying: 0
   _canJump: 0
   _isGround: 0
+  _jumpLock: 0
   _manaMax: 100
   _manaAmount: 100
   _manaRegen: 1
+  _godmode: 0
   _obpoint: 0
 --- !u!114 &1104779756
 MonoBehaviour:
@@ -230,7 +232,7 @@ MonoBehaviour:
   - {x: 0.125, y: -0.14499998, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 57206
+  m_InstanceId: 144856
 --- !u!1 &1468776430973924212
 GameObject:
   m_ObjectHideFlags: 0

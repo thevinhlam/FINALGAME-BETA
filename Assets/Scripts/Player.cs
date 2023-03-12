@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
     public float _manaAmount = 100;
     public float _manaRegen = 1f;
 
+    [SerializeField]
+    public bool _godmode;
+
 
     public int _obpoint = 0;
     // Start is called before the first frame update
@@ -206,20 +209,21 @@ public class Player : MonoBehaviour
         }
     }
 
+
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" || collision.tag == "Trap")
+        if ((collision.tag == "Enemy" || collision.tag == "Trap") && !_godmode)
         {
             Invoke("ResetScene", 1);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Trap")
+        if ((collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Trap") && !_godmode)
         {
             Invoke("ResetScene", 1);
         }
