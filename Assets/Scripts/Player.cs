@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] Transform wallCheck;
 
+    public KeysText _getKeys;
+
 
     Rigidbody2D _myRigidbody;
     public CapsuleCollider2D _myCapCollider;
@@ -18,6 +20,8 @@ public class Player : MonoBehaviour
     public bool _canJump;
     [SerializeField]
     public bool _isGround;
+
+    public bool _jumpLock = false;
 
     public float _manaMax = 100;
     public float _manaAmount = 100;
@@ -40,6 +44,7 @@ public class Player : MonoBehaviour
         _running();
         _flying();
         _FlipSprite();
+        _jumpLockk();
     }
 
     void _running()
@@ -111,7 +116,7 @@ public class Player : MonoBehaviour
 
     void _flying2()
     {
-        if (_isflying == true)
+        if (_isflying == true && !_jumpLock)
         {
             if (_manaAmount > 5)
             {
@@ -123,7 +128,7 @@ public class Player : MonoBehaviour
 
     void _manaSys()
     {
-        if (_manaAmount >= 1)
+        if (_manaAmount >= 5)
         {
             _manaAmount -= _manaRegen * 50 * Time.deltaTime;
             _manaMax = Convert.ToInt32(_manaAmount);
@@ -182,6 +187,18 @@ public class Player : MonoBehaviour
         if (playerHasHorizontalSpeed)
         {
             transform.localScale = new Vector2(Mathf.Sign(_myRigidbody.velocity.x)*Math.Abs(_myRigidbody.transform.localScale.x), _myRigidbody.transform.localScale.y);
+        }
+    }
+
+    void _jumpLockk()
+    {
+        if (!_isGround && _manaMax == 5)
+        {
+            _jumpLock = true;
+        }
+        else if (_isGround)
+        {
+            _jumpLock = false;
         }
     }
 

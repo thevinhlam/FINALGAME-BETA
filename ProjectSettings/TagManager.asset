@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Trap
   - Enemy
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Key
+    uniqueID: 1122762851
     locked: 0
