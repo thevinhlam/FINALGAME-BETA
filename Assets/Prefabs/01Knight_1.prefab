@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 210876621284531376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.9, y: 17.08, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1012257571}
@@ -155,8 +155,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0}
-  m_Size: {x: 0.21232045, y: 0.29}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.21870542, y: 0.29}
   m_Direction: 0
 --- !u!50 &4895013240665593839
 Rigidbody2D:
@@ -191,19 +191,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9562ecd166933be4eb42e3eacb8532f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 6
-  jumpSpeed: 12
+  runSpeed: 10
+  jumpSpeed: 18
   groundCheck: {fileID: 1012257571}
   wallCheck: {fileID: 3313992655264575766}
   _getKeys: {fileID: 0}
   _myCapCollider: {fileID: 789939974260103790}
   _isflying: 0
-  _canJump: 0
+  _canJump: 1
   _isGround: 0
   _jumpLock: 0
   _manaMax: 100
   _manaAmount: 100
-  _manaRegen: 1
+  _manaRegen: 1.5
   _godmode: 0
   _obpoint: 0
 --- !u!114 &1104779756
@@ -232,7 +232,7 @@ MonoBehaviour:
   - {x: 0.125, y: -0.14499998, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 53280
+  m_InstanceId: 93856
 --- !u!1 &1468776430973924212
 GameObject:
   m_ObjectHideFlags: 0
