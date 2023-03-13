@@ -2225,6 +2225,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4049758590086882257, guid: 9a6d374dd025f304e8c4c1965a44359a, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 4712013875488808262, guid: 9a6d374dd025f304e8c4c1965a44359a, type: 3}
       propertyPath: m_Name
       value: LevelLoader

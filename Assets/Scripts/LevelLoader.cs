@@ -16,7 +16,7 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadScene()
     {
-        if (Input.GetMouseButtonDown(0)) ;
+        if (Input.GetMouseButtonDown(0));
         {
             //Play animation
             transition.SetTrigger("Start");

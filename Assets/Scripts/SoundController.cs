@@ -7,7 +7,6 @@ public class SoundController : MonoBehaviour
     void Start()
     {
         musicSource.Play();
-        
     }
 
     // Update is called once per frame
