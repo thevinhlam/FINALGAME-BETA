@@ -13,7 +13,7 @@ public class Keys : MonoBehaviour
 
     private void Start()
     {
-        _keySound = FindObjectOfType<AudioSource>();
+       // _keySound = FindObjectOfType<AudioSource>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,7 +21,9 @@ public class Keys : MonoBehaviour
 
         if (collision.tag == "Player")
         {
+            
             _keySound.Play();
+            
             _KeyTexts._GetKeynum();
             gameObject.SetActive(false);
         }
