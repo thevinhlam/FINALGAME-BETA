@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,5 +27,15 @@ public class Timer : MonoBehaviour
         currentTime += 1 * Time.deltaTime;
         _timeText.text = currentTime.ToString("0");
         saveTime = currentTime.ToString("0");
+    }
+
+    public string _aaa()
+    {
+        return saveTime;
+    }
+
+    public float _aaaFloat()
+    {
+        return currentTime;
     }
 }
