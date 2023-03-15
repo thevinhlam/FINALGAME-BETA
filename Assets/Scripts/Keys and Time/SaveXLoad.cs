@@ -24,6 +24,8 @@ public class SaveXLoad : MonoBehaviour
 
     public BoxCollider2D _SaveBoxCollider;
 
+    public int _currentScenenum;
+
     [SerializeField] private bool _Level1;
     [SerializeField] private bool _Level2;
     [SerializeField] private bool _Level3;
@@ -174,6 +176,27 @@ public class SaveXLoad : MonoBehaviour
     public void _bbb()
     {
         _gettime = _gettimuu._aaa();
+    }
+
+    public int _getScenenum()
+    {
+        if (_isTutorial)
+        {
+            _currentScenenum = 0;
+        }
+        else if (_Level1)
+        {
+            _currentScenenum = 1;
+        }
+        else if (_Level2)
+        {
+            _currentScenenum = 2;
+        }
+        else if (_Level3)
+        {
+            _currentScenenum = 3;
+        }
+        return _currentScenenum;
     }
 
     public void SaveDone()

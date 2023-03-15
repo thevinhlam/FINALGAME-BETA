@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] Transform wallCheck;
 
+    public Animator _Animation;
+
     public KeysText _getKeys;
 
 
@@ -48,6 +50,20 @@ public class Player : MonoBehaviour
         _flying();
         _FlipSprite();
         _jumpLockk();
+        _AnimationPlayer();
+    }
+
+    void _AnimationPlayer()
+    {
+        _Animation.SetFloat("Speed", Mathf.Abs(_myRigidbody.velocity.x));
+        if(_isflying)
+        {
+            _Animation.SetBool("Jumping", true);
+        }
+        if(!_isflying)
+        {
+            _Animation.SetBool("Jumping", false);
+        }
     }
 
     void _running()
@@ -219,6 +235,9 @@ public class Player : MonoBehaviour
         if ((collision.tag == "Enemy" || collision.tag == "Trap") && !_godmode)
         {
             Invoke("ResetScene", 1);
+            _Animation.SetTrigger("Deadd");
+            runSpeed = 0;
+
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -226,6 +245,8 @@ public class Player : MonoBehaviour
         if ((collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Trap") && !_godmode)
         {
             Invoke("ResetScene", 1);
+            _Animation.SetTrigger("Deadd");
+            runSpeed = 0;
         }
     }
 }

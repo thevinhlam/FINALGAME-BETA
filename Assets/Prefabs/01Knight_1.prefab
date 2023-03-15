@@ -111,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 294744336, guid: 514c9548a36fea147a215e9cb99c728c, type: 3}
+  m_Sprite: {fileID: 210484762, guid: 6cdf1bd01b3b32f4fbfeddd9af56e083, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +132,7 @@ Animator:
   m_GameObject: {fileID: 210876621284531376}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 98a0567f891cf944fb33bbe0e5213582, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8a4f22869849d994cbce3754c5f08cc5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -195,6 +195,7 @@ MonoBehaviour:
   jumpSpeed: 18
   groundCheck: {fileID: 1012257571}
   wallCheck: {fileID: 3313992655264575766}
+  _Animation: {fileID: 6960325100379031446}
   _getKeys: {fileID: 0}
   _myCapCollider: {fileID: 789939974260103790}
   _isflying: 0
@@ -232,7 +233,7 @@ MonoBehaviour:
   - {x: 0.125, y: -0.14499998, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -97696
+  m_InstanceId: -3628
 --- !u!1 &1468776430973924212
 GameObject:
   m_ObjectHideFlags: 0

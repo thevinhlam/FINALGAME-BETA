@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public SaveXLoad _getthescenenum;
 
     // Update is called once per frame
     void Update()
@@ -41,5 +43,11 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
+
+        SaveXLoadDDD data = new SaveXLoadDDD();
+        data._scenenumber = _getthescenenum._getScenenum();
+
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(Application.dataPath + "/SaveLastScene.json", json);
     }
 }
