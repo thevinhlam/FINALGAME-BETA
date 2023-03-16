@@ -29,11 +29,14 @@ public class FireBullet1 : MonoBehaviour
         gameObject.SetActive(true);
     }
     private void Update()
-    {   
+    {
+        
+
         rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
         
         lifeTime += Time.deltaTime;
         if (lifeTime > resetTime)
             gameObject.SetActive(false);
+        
     }
 }

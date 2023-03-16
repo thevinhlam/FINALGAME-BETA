@@ -1358,7 +1358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  levelText: {fileID: 0}
+  levelText: {fileID: 1888988955}
   lastlevel: 0
 --- !u!4 &730269507
 Transform:
@@ -2886,6 +2886,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837175165}
   m_CullTransparentMesh: 1
+--- !u!114 &1888988955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1409609274175287473, guid: 7bf99931b346e714589b56ebc4c7ea8a, type: 3}
+  m_PrefabInstance: {fileID: 2935451644815803982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1974380510
 GameObject:
   m_ObjectHideFlags: 0

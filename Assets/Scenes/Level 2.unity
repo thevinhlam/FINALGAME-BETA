@@ -138457,6 +138457,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6148467662804028246, guid: cc355e40e25f4fc4f88e05bbde3f0fd1, type: 3}
+      propertyPath: _getthescenenum
+      value: 
+      objectReference: {fileID: 2131609894}
     - target: {fileID: 6148467662804028247, guid: cc355e40e25f4fc4f88e05bbde3f0fd1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -138559,7 +138563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc355e40e25f4fc4f88e05bbde3f0fd1, type: 3}
---- !u!43 &1432704078
+--- !u!43 &1379164687
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
