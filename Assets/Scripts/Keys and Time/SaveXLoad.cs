@@ -148,12 +148,12 @@ public class SaveXLoad : MonoBehaviour
         if(_playerisgod._godmode == true)
         {
             _playerisgod._godmode = false;
-            _Goooodd.text = "No More God :((";
+            _Goooodd.text = "GOD MODE OFF";
         }
         else if(_playerisgod._godmode == false)
         {
             _playerisgod._godmode = true;
-            _Goooodd.text = "GOD!!!!!";
+            _Goooodd.text = "GOD MODE ON";
         }
     }
 
@@ -182,7 +182,7 @@ public class SaveXLoad : MonoBehaviour
     {
         if (_isTutorial)
         {
-            _currentScenenum = 0;
+            _currentScenenum = 1;
         }
         else if (_Level1)
         {

@@ -8,14 +8,14 @@ using System;
 using System.IO;
 public class LevelSelector : MonoBehaviour
 {
-    public int level;
+    public int level = 0;
     public Text levelText;
 
     public int lastlevel;
     // Start is called before the first frame update
     void Start()
     {
-        levelText.text = level.ToString();
+      levelText.text = level.ToString();
     }
 
     public void OpenScene() 
